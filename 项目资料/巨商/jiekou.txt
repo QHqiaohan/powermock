@@ -1,0 +1,419 @@
+首页
+城乡优购-聚鲜U客-本地商城
+请求方式 post
+请求方式接口 /activity/getNiceChoose
+请求参数
+ modularId //模块id
+返回参数
+banner:[ //banner
+    {
+    image//图片
+    }
+]
+modular：[//子模块
+    {
+    id :11
+    logo:"https://jsuke.oss-cn-shenzhen.aliyuncs.com/image/indexCityCountry_tu1.png"
+    name  :   "综合优选"
+    }
+]
+news:[]//快报
+
+根据子模块id查询门店&商品信息
+请求方式 post
+请求方式接口 /modularPortal/getShopAndGoodsByModular
+请求参数
+ modularId //子模块id
+返回参数
+shop:[ //店铺信息
+    {
+    shopName//店铺名字
+    headImg//店铺图片
+    announcement//店铺说明
+    id//店铺id
+    }
+]
+shopGoods：[//商品信息
+    {
+      goodsName//商品名字
+       salesPrice//商品价格
+       saleAmont//销量
+       id//id
+    }
+]
+特色家乡-直销平台
+请求子模块 和banner
+请求方式 post
+请求方式接口 /activity/getMoreInfo
+请求参数
+ modularId //模块id
+返回参数
+
+根据子模块id 获取商品 店铺
+请求方式 post
+请求方式接口 /modularPortal/getShopAndGoodsByModular
+请求参数
+ modularId //子模块id
+返回参数
+
+会员商品
+请求子模块 和banner
+请求方式 post
+请求方式接口 /activity/getVipShop
+请求参数
+ modularId //模块id
+返回参数
+
+根据子模块id 获取商品 店铺
+请求方式 post
+请求方式接口 /modularPortal/getShopAndGoodsByModular
+请求参数
+ modularId //子模块id
+返回参数
+
+新鲜好物-更多
+
+请求方式 post
+请求方式接口 /modularPortal/shopGoodsListByModularId
+请求参数
+ modularId://子模块id
+ current: 1
+ size: 10
+返回参数
+
+二手市场-首页
+请求方式 post
+请求方式接口 /activity/getToMarket
+请求参数
+
+返回参数
+
+ 发布
+
+ 请求方式 post
+ 请求方式接口  /activity/add
+ 请求参数
+content: 测试二手市场
+images: 多张图用逗号分隔上传 ‘ ，’
+name:
+phone:
+type: 3 表示是二手市场
+ 返回参数
+
+ 查询发布列表
+ 请求方式 post
+ 请求方式接口  /activity/findMyActivity
+ 请求参数
+type: 3 表示是二手市场
+ 返回参数
+
+
+查看详情
+
+ 请求方式 post
+ 请求方式接口 activity/toMarketInfo
+ 请求参数
+  id: 51 活动id
+ 返回参数
+
+ 查看详情评论
+
+  请求方式 post
+  请求方式接口 /activity/updateActivity
+  请求参数
+   content: 测试二手市场
+   images: 多张图用逗号分隔上传 ‘ ，’
+   name:
+   phone:
+   type: 3 表示是二手市场
+
+  返回参数
+
+添加评论
+
+ 请求方式 post
+ 请求方式接口 /activity/updateActivity
+ 请求参数
+ comment: 内容
+ activityId: 66//活动id
+
+
+ 返回参数
+
+
+删除
+
+ 请求方式 post
+ 请求方式接口 /activity/delActivity
+ 请求参数
+  id: 51 活动id
+ 返回参数
+
+编辑
+
+ 请求方式 post
+ 请求方式接口 /activity/updateActivity
+ 请求参数
+ activityId: 66 //活动id
+ size: 10
+ current: 1
+
+ 返回参数
+
+
+店铺详情
+
+编辑
+
+ 请求方式 post
+ 请求方式接口 /shop/getShopById
+ 请求参数
+ shopId: 88//店铺Id
+ 返回参数
+
+店铺商品分类
+ 请求方式 post
+ 请求方式接口 shop/getShopAttributeByShopId
+ 请求参数
+ shopId: 88//店铺Id
+ 返回参数
+
+
+店铺商品
+ 请求方式 post
+ 请求方式接口 /shopGoods/getShopGoodsBy
+ 请求参数
+ shopId: 88//店铺Id
+ type: 1=价格降序/-1升序,2=销量,3=新品,不传=默认综合
+ 返回参数
+
+商品详情
+
+ 请求方式 post
+ 请求方式接口 /shopGoods/getShopGoodsById
+ 请求参数
+ id: 536//商品id
+ 返回参数
+
+查询该商品是否收藏
+请求方式 post
+ 请求方式接口 /collectGoods/isCollected
+ 请求参数
+ goodsId: 536////商品id
+ userId: 237//用户id
+ 返回参数
+
+查询购物车数量
+请求方式 post
+ 请求方式接口 /shoppingCart/getUserCartCount
+ 请求参数
+ userId: 237//用户id
+ 返回参数
+
+查询该商品评论数量
+请求方式 post
+ 请求方式接口 /goodsEvaluate/get
+ 请求参数
+  goodsId: 536////商品id
+ 返回参数
+
+查询优惠卷列表
+请求方式 get
+ 请求方式接口 /coupon/listByShopId
+ 请求参数
+  shopId: 41////店铺id
+ 返回参数
+
+领取优惠卷
+请求方式 post
+ 请求方式接口 /coupon/getCoupon
+ 请求参数
+couponId: 20//优惠卷id
+userId: 237
+ 返回参数
+
+加入购物车
+请求方式 post
+ 请求方式接口 /shoppingCart/add
+ 请求参数
+userId: 237
+goodsId: 536
+shopId: 41
+sizeId: 1 //商品规格id
+num: 1 //数量 默认1
+ 返回参数
+
+提交订单---页面 该页面有修改 做的时候叫我
+
+查询总积分
+
+请求方式 post
+ 请求方式接口 /userIntegral/getCount
+ 请求参数
+userId: 237
+
+ 返回参数
+
+查询默认地址
+
+请求方式 post
+ 请求方式接口 /address/getDefault
+ 请求参数
+userId: 237
+ 返回参数
+
+积分兑换规则
+
+请求方式 post
+ 请求方式接口 /integralRule
+ 请求参数
+userId: 237
+ 返回参数
+
+查询该商品可用优惠卷
+
+请求方式 post
+ 请求方式接口 /coupon/listByShopUserId
+ 请求参数
+shopId: 41
+userId: 237
+ 返回参数
+
+提交订单
+
+请求方式 post
+ 请求方式接口 /userOrder/submit
+ 请求参数
+{
+  "addressId": 0,//地址id ,
+  "payType": 0,//支付方式 ,  0	余额  1	货到付款  2	支付宝   3	微信    4	银行卡
+  "orderType": 0,订单类型 ,0 正常订单 1-秒杀订单
+  "distributionType": 0,//配送方式
+                              0	快递
+                              1	同城配送
+                              2	到店自提
+  "distributionTime": "2018-07-30T02:59:02.049Z",//配送时间 ,
+  isUseIntegral //是否使用了积分 1使用 0 未使用
+  "shops": [//店铺
+    {
+      "shopId": 0, //店铺ID
+      "userCouponId": 0,//优惠券id ,
+      "goods": [
+        {
+          "goodsSizeId": 0,//商品规格id ,
+          "goodsId": 0,// 商品id ,
+          "goodsPrice": 0,//商品价格 ,
+          "num": 0,/数量 ,
+          "cartId": 0//购物车id
+        }
+      ]
+    }
+  ]
+}
+
+
+查询所有订单
+
+请求方式 post
+ 请求方式接口 /userOrder/getOrderByUserId
+ 请求参数
+ status:null-全部 0-待付款 1-待发货 2-待收货 3待评价
+current: 1
+size: 10
+ 返回参数
+
+催一催
+
+请求方式 post
+ 请求方式接口 /userOrder/pushAPush
+ 请求参数
+ id: 1232 订单id
+ 返回参数
+
+取消订单
+
+请求方式 post
+ 请求方式接口 /userOrder/cancelOrder
+ 请求参数
+ id: 1232 订单id
+ 返回参数
+
+
+删除订单
+
+请求方式 post
+ 请求方式接口 /userOrder/delOrder
+ 请求参数
+ id: 1232 订单id
+ 返回参数
+
+
+评价页-根据商品id查询商品信息
+
+请求方式 post
+ 请求方式接口 /shopGoods/getById
+ 请求参数
+ goodsId: 77,79 //多个商品id用逗号隔开
+ 返回参数
+
+
+评价页-发表评价
+
+请求方式 post
+ 请求方式接口 /goodsEvaluate/addEvaluate?userId=237  加userid
+ 请求参数
+[
+{
+"content":"阿萨德",//评论内容
+"goodsId":77,//商品id
+"image":"","图片上传 多个图片用,号分割
+goodsStar":5,"//商品质量*数
+sendStar":5,"//送货员服务*数
+serviceStar":5//客服服务*数
+}
+]
+ 返回参数
+
+退换货选择售后页
+
+请求方式 get
+ 请求方式接口 /shopGoodsSize/get
+ 请求参数
+  goodsSizeId 规格ID
+ 返回参数
+
+售后提交
+
+请求方式 post
+ 请求方式接口 /userOrder/addOrderService
+ 请求参数
+orderId: 1184 //订单id
+shopId: 41//店铺id
+sizeId: 1 //规格id
+type: 1 -退款 2 退款 退货 3-换货
+addressId: 13 地址id
+refundReason: 寄错东西 //理由
+content: 阿萨德 //具体原因
+image: https://jsuke.oss-cn-shenzhen.aliyuncs.com/image/1533697467591882492.png //图片 多张图用逗号隔开
+
+
+秒杀商品-获取秒杀时间
+
+请求方式 post
+ 请求方式接口 /shopRushBuy/getKillTime
+
+返回参数说明
+status='NOT_STARTED' 未开始
+status='ON_GOING' 进行中
+status='OVER' 已结束
+
+获取秒杀商品-
+
+请求方式 post
+ 请求方式接口 shopRushBuy/findKillShopGoods
+ 请求参数
+id: 10 //时间段
+current: 1
+size: 10
+ 返回参数
+

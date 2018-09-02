@@ -1,0 +1,20 @@
+
+支付相关：
+		 URL: /pay/balancePay
+	调用方式：POST
+		参数：orderId  订单id,多个订单用 ， 隔开
+			  payType  支付方式  --- 0余额  2支付宝 3微信公众号 4微信APP
+	  返回值：charge对象  -- 查看ping++ api
+	  
+	  
+支付完成：
+
+		 URL: /pay/complete
+	调用方式：POST
+		参数：orderId  订单id,多个订单用 ， 隔开
+			  status   支付结果 0失败 1成功
+		返回值：orderNum ：订单号
+				payType  ：支付类型 
+				price	 : 支付金额
+				receiver ：收件人
+				payName  ：用户名
